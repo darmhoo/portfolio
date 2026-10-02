@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Omodamola Oladeji — Senior Full-Stack Engineer",
   description:
-    "Portfolio of Omodamola Oladeji, a Senior Full-Stack Engineer specializing in fintech and payment systems.",
+    "Portfolio of Omodamola Oladeji, a Senior Full-Stack Engineer (Ruby on Rails, Laravel, React/TypeScript, Go) building operations-critical workflows, payment and transaction systems.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

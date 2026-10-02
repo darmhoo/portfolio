@@ -1,4 +1,4 @@
-import { experience, education } from "@/data/profile";
+import { experience, education, community } from "@/data/profile";
 
 export default function Experience() {
   return (
@@ -14,11 +14,25 @@ export default function Experience() {
               <span className="text-sm text-foreground/50">{job.period}</span>
             </div>
             <p className="text-sm text-foreground/60">{job.company}</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-foreground/70 sm:text-base">
-              {job.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
+            {job.summary && (
+              <p className="mt-3 text-sm text-foreground/70 sm:text-base">
+                {job.summary}
+              </p>
+            )}
+            {job.groups.map((group, index) => (
+              <div key={group.heading ?? index} className="mt-4">
+                {group.heading && (
+                  <h4 className="text-sm font-semibold text-foreground/80">
+                    {group.heading}
+                  </h4>
+                )}
+                <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-foreground/70 sm:text-base">
+                  {group.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         ))}
       </div>
@@ -32,6 +46,21 @@ export default function Experience() {
           <span className="text-sm text-foreground/50">{education.period}</span>
         </div>
         <p className="text-sm text-foreground/60">{education.school}</p>
+      </div>
+
+      <h2 className="mt-14 text-sm font-semibold uppercase tracking-widest text-foreground/50">
+        Community
+      </h2>
+      <div className="mt-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 className="text-lg font-semibold">
+            {community.role}, {community.organisation}
+          </h3>
+          <span className="text-sm text-foreground/50">{community.period}</span>
+        </div>
+        <p className="mt-1 text-sm text-foreground/70 sm:text-base">
+          {community.description}
+        </p>
       </div>
     </section>
   );
